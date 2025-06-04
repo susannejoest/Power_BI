@@ -1,0 +1,35 @@
+CY YTD = 
+CALCULATE(
+    SELECTEDMEASURE(),
+    FILTER(
+        T_DynamicDate_Last2Yrs2,
+        T_DynamicDate_Last2Yrs2[DT_YTD_PM_CY_YN] = -1
+    )
+)
+
+PY YTD = 
+CALCULATE(
+    SELECTEDMEASURE(),
+    FILTER(
+        T_DynamicDate_Last2Yrs2,
+        T_DynamicDate_Last2Yrs2[DT_YTD_PM_PY_YN] = -1
+    )
+)
+
+CY PM = 
+CALCULATE(
+    SELECTEDMEASURE(),
+    FILTER(
+        T_DynamicDate_Last2Yrs2,
+        T_DynamicDate_Last2Yrs2[DT_IsCurMth_CY_YN] = -1
+    )
+)
+
+PY PM = 
+CALCULATE(
+    SELECTEDMEASURE(),
+    FILTER(
+        T_DynamicDate_Last2Yrs2,
+        T_DynamicDate_Last2Yrs2[DT_IsCurMth_PY_Name] = -1
+    )
+)
