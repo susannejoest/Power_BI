@@ -1,0 +1,17 @@
+NL CY YTD $ - Amt > PY ▲▼ = 
+VAR target = [WalkNL Act CY YTD ($)]
+VAR previousYr = [WalkNL Act PY YTD ($)]
+VAR _arrow =
+    SWITCH(
+        TRUE(),
+        target >= previousYr, "▲",  // Up Arrow when the KPI is positive
+        target < previousYr, "▼",  // Down Arrow when the KPI is negative
+        " "  // Empty space when the KPI is zero
+    )
+
+RETURN
+    IF(
+        ISBLANK(target), 
+        BLANK(), 
+        FORMAT(target, "0.0") & UNICHAR(160) & _arrow
+    )
